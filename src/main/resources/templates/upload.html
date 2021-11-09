@@ -16,6 +16,11 @@
      </form>
  </div>
 
+<div th:if="${errorText!=null}" class="alert alert-danger">
+    <h5 th:text="${errorText}"></h5>
+</div>
+
+
 <footer class="text-muted py-5" th:insert="blocks/footer :: footer"></footer>
 
 
