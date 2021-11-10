@@ -8,3 +8,4 @@ password: 5558
 изменить username и password на свои значения
 2. выполнить mvn spring-boot:run (через cmd из папки javaSchoolFinal-main)
 3. открыть в браузере http://localhost:8080/
+Для заполнения базы тестовыми данными скопировать schema.sql, в базе данных(например, через pgAdmin): таблица article, CREATE Script, вставить скопированный текст
