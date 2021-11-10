@@ -1,5 +1,5 @@
 "# javaSchoolFinal" 
-Должны быть установлены: Maven, Java, PostgreSQL
+Должны быть установлены: Maven 3.6.3, Java 17, PostgreSQL 14
 1. создать базу данных на postgresql с именем news
 username: postgres
 password: 5558
