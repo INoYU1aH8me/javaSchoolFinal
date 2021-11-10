@@ -10,10 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.*;
-import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.zip.*;
@@ -43,7 +39,6 @@ public class MainController {
     @PostMapping("/upload")
     public String postUpload(@RequestParam("file") MultipartFile file, Model model) {
         String text = "", title = "";
-        System.out.println("asdfg");
         try (ZipInputStream zin = new ZipInputStream(file.getInputStream())) {
             ZipEntry entry = zin.getNextEntry();
             if (entry == null) {
@@ -51,11 +46,9 @@ public class MainController {
                 return "upload";
             }
             if (!entry.getName().equals(articleFileName)) {
-                System.out.println(entry.getName());
                 model.addAttribute("errorText", "Zip archive must contain only '" + articleFileName + "' file");
                 return "upload";
             }
-            System.out.println(entry.getName());
             boolean titleEnded = false;
             if (entry != null) {
                 for (int c = zin.read(); c != -1; c = zin.read()) {
